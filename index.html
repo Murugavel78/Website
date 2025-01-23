@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* Global Reset and Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+        }
+
+        header {
+            background-color: #196c94;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Profile Picture Animation */
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 150px;
+            animation: slideInUp 1.5s ease-out;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #000;
+            font-weight: 400;
+            animation: fadeIn 2.5s ease-out 0.5s;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #941919;
+        }
+
+        /* Hamburger Menu Styling */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .section-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        ul, ol {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        ul li, ol li {
+            margin: 10px 0;
+        }
+
+        /* Download Button Styling */
+        .download-button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #941919;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #333;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 3rem 0;
+            }
+
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+                top: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-top: 120px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .download-button {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=e5KuXTAAAAAJ&citpid=1" alt="Your Profile Picture" class="profile-picture">
+            <h1>Dr. U Murugavel</h1>
+            <p>Professor | Ethical Hacking | Cybersecurity | IoT | Software Engineering</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#book-publications">Book Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p>I am a passionate and dedicated Professor of Computer Science with extensive experience in the fields of <b>Ethical Hacking, Cybersecurity, Internet of Things (IoT), Computer Networks, and Software Engineering</b>. With a deep commitment to both research and teaching, I strive to bridge the gap between theoretical knowledge and practical applications in the ever-evolving world of technology.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-content">
+            <h2>Education</h2>
+            <ul>
+                <li><b>Ph.D. in Computer Science</b></li>
+                <li><b>SET (State Eligibility Test) - Computer Science</b></li>
+                <li><b>M.Phil. Computer Science</b></li>
+                <li><b>M.Sc. Computer Science</b></li>
+                <li><b>B.Sc. Computer Science</b></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-content">
+            <h2>Skills</h2>
+            <ul>
+                <li>CyberSecurity</li>
+                <li>Internet of Things</li>
+                <li>Cloud Computing</li>
+                <li>Python</li>
+                <li>IBM Cloud</li>
+                <li>Machine Learning & AI</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="book-publications">
+        <div class="section-content">
+            <h2>Book Publications</h2>
+            <ol>
+                <li><b>Java and Data Structures</b> - Charulatha publication - 2021</li>
+                <li><b>Web Technology</b> – Charulatha publication - 2022</li>
+                <li><b>Machine Learning with Python</b> – CIIT - June 2024</li>
+                <li><b>Java Programming</b> – CIIT Publications - July 2024</li>
+                <li><b>Artificial Intelligence for Network and Cloud Security</b> – CIIT - Sep 2024</li>
+                <li><b>Fundamentals of Computers</b> – Self Publications - Oct 2024</li>
+                <li><b>Python Programming</b> – CIIT Publications - Oct 2024</li>
+                <li><b>Internet of Things</b> – Awaiting Publication</li>
+                <li><b>Computer Applications in Business</b> – Processing for Publication</li>
+                <li><b>Data Structure and Algorithms</b> – Processing for Publication</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="#">AI-Based Alternator Control System</a></li>
+                <li><a href="#">Cloud Security IBM</a></li>
+                <li><a href="#">IBM Chatbot</a></li>
+                <li><a href="#">Chatbot</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="section-content">
+            <center>
+                <h2>Resume</h2>
+                <a href="Dr_u_Murugavel_AsstProf_resume.pdf" target="_blank" class="download-button">Download CV</a>
+            </center>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>© 2025 Dr.U Murugavel</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling to section when clicking on navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
